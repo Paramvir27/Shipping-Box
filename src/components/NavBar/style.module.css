@@ -65,12 +65,8 @@
   border-bottom: 2px solid var(--color-primary-light);
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-  .navbarContent {
-    padding: 0 16px;
-  }
 
+@media (max-width: 768px) {
   .brandName {
     font-size: 18px;
   }

@@ -114,7 +114,7 @@ const AddBox = () => {
 
         {destinationCountry && (
           <div>
-            <p>Shipping Charge: {shippingCharge}</p>
+            <div>Shipping Charge: {shippingCharge}</div>
           </div>
         )}
 

@@ -17,7 +17,7 @@ const NavBar = () => {
       <div className={styles.navbarContent}>
         <div className={styles.logoSection}>
           <img src={logo} alt="Logo" className={styles.logo} />
-          <span className={styles.brandName}>Shipping</span>
+          <span className={styles.brandName}>Shipping Box</span>
         </div>
 
         <div className={styles.navItems}>
