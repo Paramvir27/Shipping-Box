@@ -1,0 +1,85 @@
+.navbar {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbarContent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px max(24px, 5%);
+  height: 64px;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  filter: brightness(1.1);
+}
+
+.brandName {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.4px;
+}
+
+.navItems {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  font-size: 14px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.navItem:hover {
+  color: var(--color-text-primary);
+}
+
+.navItem.active {
+  color: var(--color-primary-light);
+  border-bottom: 2px solid var(--color-primary-light);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbarContent {
+    padding: 0 16px;
+  }
+
+  .brandName {
+    font-size: 18px;
+  }
+
+  .navItem {
+    font-size: 13px;
+  }
+
+  .navItem span {
+    display: none;
+  }
+}
