@@ -1,8 +1,9 @@
 import React from 'react'
-import TextField from '../../components/Input/Text'
+import InputText from '../../components/Input/Text'
 import styles from './style.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { setReceiverName } from '../../store/slices/addBoxSlice';
+import { setBoxWeight, setReceiverName } from '../../store/slices/addBoxSlice';
+import InputNumber from '../../components/Input/Number';
 
 const AddBox = () => {
   const dispatch = useDispatch();
@@ -19,17 +20,29 @@ const AddBox = () => {
     return null
   }
 
+  const handleBoxWeightChange = (event) => {
+    dispatch(setBoxWeight(Number(event.target.value)))
+  }
+
+  const handleBoxWeightValidation = () => {
+    if (boxWeight < 0) {
+      return "Box Weight is required"
+    }
+    return null
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(receiverName, boxWeight, boxColor, destinationCountry);
+    // dispatch(resetAddBox());
   }
 
   return (
     <div className={styles.parentWrapper}>
       <form onSubmit={handleSubmit}>
 
-        <TextField
-          isMandatory={true}
+        <InputText
+          required={true}
           label="Receiver Name"
           placeholder="Enter Receiver Name"
           value={receiverName}
@@ -37,8 +50,17 @@ const AddBox = () => {
           getValidationMessage={handleReceiverNameValidation}
         />
 
-        <TextField label="Box Color" placeholder="Enter Box Color" />
-        <TextField label="Box Weight" placeholder="Enter Box Weight" />
+        <InputNumber
+          required={true}
+          label="Box Weight"
+          placeholder="Enter Box Weight"
+          value={boxWeight}
+          min="0.1" max="100"
+          step="0.1"
+          onChange={handleBoxWeightChange}
+          getValidationMessage={handleBoxWeightValidation}
+        />
+
 
         <button type="submit">Add Box</button>
       </form>

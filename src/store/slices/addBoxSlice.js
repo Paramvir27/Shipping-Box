@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   receiverName: "",
-  boxWeight: 0,
+  boxWeight: 1,
   boxColor: "#fff",
   destinationCountry: "",
 };
@@ -23,6 +23,9 @@ export const addBoxSlice = createSlice({
     },
     setDestinationCountry: (state, action) => {
       state.destinationCountry = action.payload
+    },
+    resetAddBox: () => {
+      return initialState
     }
   }
 })
@@ -31,7 +34,8 @@ export const {
   setReceiverName,
   setBoxWeight,
   setBoxColor,
-  setDestinationCountry
+  setDestinationCountry,
+  resetAddBox
 } = addBoxSlice.actions
 
 export default addBoxSlice.reducer
