@@ -1,18 +1,6 @@
-[
-  {
-    "country": "Sweden",
-    "price": 7.35
-  },
-  {
-    "country": "China",
-    "price": 11.53
-  },
-  {
-    "country": "Brazil",
-    "price": 15.63
-  },
-  {
-    "country": "Australia",
-    "price": 50.09
-  }
-]
+{
+    "sweden": 7.35,
+    "china": 11.53,
+    "brazil": 15.63,
+    "australia": 50.09
+}

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   receiverName: "",
   boxWeight: 1,
-  boxColor: "#fff",
+  boxColor: "#ffffff",
   destinationCountry: "",
 };
 

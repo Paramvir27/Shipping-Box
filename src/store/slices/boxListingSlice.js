@@ -9,14 +9,14 @@ export const boxListingSlice = createSlice({
   name: 'boxListing',
   initialState,
   reducers: {
-    setShippingBoxList: (state, action) => {
-      state.shippingBoxList = action.payload
+    addShippingBox: (state, action) => {
+      state.shippingBoxList.push(action.payload);
     }
   }
 })
 
 export const {
-
+  addShippingBox
 } = boxListingSlice.actions
 
 export default boxListingSlice.reducer
