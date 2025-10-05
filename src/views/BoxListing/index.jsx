@@ -1,8 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
+import styles from './style.module.css';
 
 const BoxListing = () => {
   const { shippingBoxList } = useSelector(state => state.boxListing);
+
+  console.log(shippingBoxList);
 
   function hexToRgb(hex) {
     // Remove '#' if present
@@ -17,31 +20,43 @@ const BoxListing = () => {
 
     return rgb;
   }
-  
-  return (
-    <div>
-      <div style={{ padding: '1rem' }}>
 
-        <table>
+  return (
+    <div className={styles.container}>
+      <div className={styles.tableWrapper}>
+        <table className={styles.table}>
           <thead>
             <tr>
+              <th>#</th>
               <th>Receiver Name</th>
-              <th>Box Weight [Kg]</th>
+              <th>Box Weight (KG)</th>
               <th>Box Color</th>
               <th>Destination Country</th>
               <th>Shipping Charge</th>
             </tr>
           </thead>
           <tbody>
-            {shippingBoxList.map((box) => (
-              <tr key={box.id}>
-                <td>{box.receiverName}</td>
-                <td>{box.boxWeight}</td>
-                <td><div style={{ width: '100%', height: '10px', backgroundColor: box.boxColor }}></div>{hexToRgb(box.boxColor)}</td>
-                <td>{box.destinationCountry}</td>
-                <td>{box.shippingCharge}</td>
-              </tr>
-            ))}
+            {
+              shippingBoxList.map((box, index) => (
+                <tr key={box.id}>
+                  <td className={styles.indexCell}>{index + 1}</td>
+                  <td>
+                    <div className={styles.receiverName} title={box.receiverName}>
+                      {box.receiverName}
+                    </div>
+                  </td>
+                  <td>{box.boxWeight}</td>
+                  <td>
+                    <div className={styles.colorCell}>
+                      <div className={styles.colorBox} style={{ backgroundColor: box.boxColor }}></div>
+                      <span className={styles.colorValue}>{hexToRgb(box.boxColor)}</span>
+                    </div>
+                  </td>
+                  <td className={styles.countryCell}>{box.destinationCountry}</td>
+                  <td className={styles.chargeCell}>₹{box.shippingCharge}</td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </div>

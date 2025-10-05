@@ -1,0 +1,135 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md) max(var(--space-md), 5%);
+    height: calc(100vh - 65px);
+    background: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+.tableWrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 20px auto;
+    background: var(--color-surface);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-sm);
+}
+
+.table thead {
+    background: var(--color-surface-light);
+}
+
+.table thead th {
+    padding: var(--space-md);
+    text-align: left;
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+    border-bottom: var(--border-width-high-contrast) solid var(--color-border);
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+}
+
+.table tbody tr {
+    border-bottom: var(--border-width) solid var(--color-border);
+    transition: background-color var(--transition-duration) ease;
+}
+
+.table tbody tr:hover {
+    background: var(--color-surface-light);
+}
+
+.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.table tbody td {
+    padding: var(--space-md);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-base);
+}
+
+.indexCell {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+    width: 50px;
+    text-align: center !important;
+}
+
+.receiverName {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: default;
+}
+
+.colorCell {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.colorBox {
+    width: 40px;
+    height: 20px;
+    border-radius: calc(var(--border-radius) / 2);
+    border: var(--border-width) solid var(--color-border);
+    flex-shrink: 0;
+}
+
+.colorValue {
+    font-family: monospace;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.countryCell {
+    text-transform: capitalize;
+}
+
+.chargeCell {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    font-size: 1.0625rem;
+}
+
+.emptyState {
+    text-align: center !important;
+    padding: calc(var(--space-md) * 3) var(--space-md) !important;
+    color: var(--color-text-muted) !important;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .tableWrapper {
+        overflow-x: auto;
+    }
+
+    .table {
+        font-size: var(--font-size-xs);
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: var(--space-sm);
+    }
+
+    .colorBox {
+        width: 30px;
+        height: 16px;
+    }
+
+    .colorValue {
+        font-size: var(--font-size-xs);
+    }
+}
