@@ -1,89 +1,134 @@
 .parentWrapper {
   display: flex;
   flex-direction: column;
-  padding: 20px max(24px, 5%);
-  height: calc(100vh - 66px);
-
-  form button,
-  form input,
-  form select {
-    width: 100%;
-    height: 32px;
-    padding: 0 6px;
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    font-size: 14px;
-    transition: border-color 0.2s ease;
-  }
-
-  form label {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-
-    i {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: help;
-    }
-  }
-
-  .title {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 2px;
-  }
-
-  .value {
-    color: var();
-    font-size: 16px;
-    font-weight: 500;
-  }
-
-  form button {
-    cursor: pointer;
-    margin-top: 12px;
-  }
-
-  form input:focus,
-  form select:focus {
-    box-shadow: var(--shadow-focus);
-    border-color: var(--color-primary-dark);
-    border-width: 2px;
-    outline: none;
-  }
-
-
-  form>div {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-
-    label {
-      font-weight: 500;
-      font-size: 14px;
-      margin-bottom: 2px;
-    }
-  }
-
-  .rowContainer {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    margin-bottom: 10px;
-
-    div {
-      flex: 1;
-    }
-  }
+  padding: var(--space-md) max(var(--space-md), 5%);
+  height: calc(100vh - 65px);
+  background: var(--color-background);
+  color: var(--color-text-primary);
 }
 
-@media screen and (min-width: 768px) {
-  .parentWrapper {
+.parentWrapper form {
+  width: 100%;
+  padding: 30px var(--space-lg);
+  margin: 20px auto;
+  background: var(--color-surface);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
 
-    form div, form button {
-      width: 50%;
-    }
+.parentWrapper form button,
+.parentWrapper form input,
+.parentWrapper form select {
+  width: 100%;
+  height: var(--input-height);
+  padding: 0 var(--input-padding);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  transition: all var(--transition-duration) ease;
+}
+
+.parentWrapper form button {
+  background: var(--color-primary-dark);
+  color: var(--color-text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: var(--space-md);
+  border: none;
+}
+
+.parentWrapper form button:hover {
+  background: var(--color-primary-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.parentWrapper form button:active {
+  transform: translateY(0);
+}
+
+.parentWrapper form input:focus,
+.parentWrapper form select:focus {
+  box-shadow: var(--shadow-focus);
+  border-color: var(--color-primary);
+  border-width: var(--border-width-high-contrast);
+  outline: none;
+}
+
+.parentWrapper form label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+}
+
+.parentWrapper form label i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: help;
+  color: var(--color-text-muted);
+}
+
+.parentWrapper form > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-md);
+}
+
+.parentWrapper form > div label {
+  margin-bottom: var(--space-xs);
+}
+
+.title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-primary);
+}
+
+.value {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-sm);
+  background: var(--color-surface-light);
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--color-primary);
+}
+
+.value span:first-child {
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-normal);
+}
+
+.value span:last-child {
+  color: var(--color-text-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-left: var(--space-xs);
+}
+
+.rowContainer {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  align-items: flex-start;
+}
+
+.rowContainer > div {
+  flex: 1;
+  min-width: 0;
+}
+
+
+@media screen and (min-width: 992px) {
+  .parentWrapper form {
+    width: 70%;
   }
 }
