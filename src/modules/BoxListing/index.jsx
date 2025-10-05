@@ -25,7 +25,7 @@ const BoxListingModule = () => {
               <th>Box Weight (KG)</th>
               <th>Box Color</th>
               <th>Destination Country</th>
-              <th>Shipping Charge</th>
+              <th>Shipping Charge (₹)</th>
             </tr>
           </thead>
           <tbody>
