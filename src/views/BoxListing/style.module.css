@@ -38,6 +38,16 @@
     letter-spacing: 0.5px;
 }
 
+.table thead th:nth-child(1) {
+    min-width: 50px;
+    width: 50px;
+    text-align: center;
+}
+
+.table thead th:not(:nth-child(1)) {
+    min-width: 160px;
+}
+
 .table tbody tr {
     border-bottom: var(--border-width) solid var(--color-border);
     transition: background-color var(--transition-duration) ease;
@@ -55,6 +65,15 @@
     padding: var(--space-md);
     color: var(--color-text-secondary);
     font-size: var(--font-size-base);
+}
+
+.table tbody td:nth-child(1) {
+    min-width: 50px;
+    width: 50px;
+}
+
+.table tbody td:not(:nth-child(1)) {
+    min-width: 160px;
 }
 
 .indexCell {
@@ -109,7 +128,6 @@
     font-style: italic;
 }
 
-/* Responsive Design */
 @media screen and (max-width: 768px) {
     .tableWrapper {
         overflow-x: auto;

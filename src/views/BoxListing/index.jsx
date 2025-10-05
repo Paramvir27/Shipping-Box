@@ -1,24 +1,17 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
+import { hexToRgb } from './helper';
 import styles from './style.module.css';
 
 const BoxListing = () => {
   const { shippingBoxList } = useSelector(state => state.boxListing);
 
-  console.log(shippingBoxList);
-
-  function hexToRgb(hex) {
-    // Remove '#' if present
-    hex = hex.replace(/^#/, '');
-
-    // Parse r, g, b values
-    const r = parseInt(hex.substring(0, 2), 16);
-    const g = parseInt(hex.substring(2, 4), 16);
-    const b = parseInt(hex.substring(4, 6), 16);
-
-    const rgb = `(${r}, ${g}, ${b})`;
-
-    return rgb;
+  if(shippingBoxList.length === 0) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.emptyState}>No boxes added yet</div>
+      </div>
+    )
   }
 
   return (
