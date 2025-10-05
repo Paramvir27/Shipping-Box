@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import InputText from '../../components/Input/Text'
 import styles from './style.module.css'
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,10 +9,12 @@ import destinationCountries from '../../fixtures/countries.json';
 import shippingCharges from '../../fixtures/shippingCharges.json';
 import InputSelect from '../../components/Input/Select';
 import { addShippingBox } from '../../store/slices/boxListingSlice';
+import { CheckCircle } from "lucide-react"
 
 const AddBox = () => {
   const dispatch = useDispatch();
   const { receiverName, boxWeight, boxColor, destinationCountry } = useSelector(state => state.addBox);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const destinationChargePerKg = shippingCharges[destinationCountry];
   const shippingCharge = Number((destinationChargePerKg * boxWeight).toFixed(2));
@@ -51,14 +53,22 @@ const AddBox = () => {
       shippingCharge,
     };
     dispatch(addShippingBox(shippingBox));
-    dispatch(resetAddBox());
-    console.log(receiverName, boxWeight, boxColor, destinationCountry);
+    dispatch(resetAddBox());    
+    setShowSuccess(true);
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 2000);
   }
 
   return (
     <div className={styles.parentWrapper}>
-      <form onSubmit={handleSubmit}>
+      {showSuccess && (
+        <div className={styles.successMessage}>
+          <CheckCircle size={20} /> Box added successfully
+        </div>
+      )}
 
+      <form onSubmit={handleSubmit}>
         <InputText
           required={true}
           label="Receiver Name"

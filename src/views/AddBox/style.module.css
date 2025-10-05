@@ -5,6 +5,37 @@
   height: calc(100vh - 65px);
   background: var(--color-background);
   color: var(--color-text-primary);
+  position: relative;
+}
+
+.successMessage {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-success);
+  color: var(--color-text-primary);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  animation: slideDown 0.3s ease-out;
+  display: flex;
+  gap: 10px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 .parentWrapper form {
@@ -74,13 +105,13 @@
   color: var(--color-text-muted);
 }
 
-.parentWrapper form > div {
+.parentWrapper form>div {
   display: flex;
   flex-direction: column;
   margin-bottom: var(--space-md);
 }
 
-.parentWrapper form > div label {
+.parentWrapper form>div label {
   margin-bottom: var(--space-xs);
 }
 
@@ -121,7 +152,7 @@
   align-items: flex-start;
 }
 
-.rowContainer > div {
+.rowContainer>div {
   flex: 1;
   min-width: 0;
 }
