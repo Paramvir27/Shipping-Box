@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { hexToRgb } from './helper';
 import styles from './style.module.css';
 
-const BoxListing = () => {
+const BoxListingModule = () => {
   const { shippingBoxList } = useSelector(state => state.boxListing);
 
   if(shippingBoxList.length === 0) {
@@ -57,4 +57,4 @@ const BoxListing = () => {
   )
 }
 
-export default BoxListing
+export default BoxListingModule

@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './style.module.css';
-import SuccessNotification from './components/SuccessNotification';
 import AddBoxForm from './components/AddBoxForm';
-import { useAddBoxForm } from '../../hooks/useAddBoxForm';
-import { calculateShippingCharge, getChargePerKg } from '../../services/shippingService';
+import SuccessNotification from './components/SuccessNotification';
+import { useAddBoxForm } from './hooks/useAddBoxForm';
+import { calculateShippingCharge, getChargePerKg } from './services/shippingService';
 import shippingCharges from '../../fixtures/shippingCharges.json';
+import styles from './style.module.css';
 
-const AddBox = () => {
+const AddBoxModule = () => {
   const {
     formData,
     showSuccess,
@@ -36,4 +36,4 @@ const AddBox = () => {
   );
 };
 
-export default AddBox;
+export default AddBoxModule;

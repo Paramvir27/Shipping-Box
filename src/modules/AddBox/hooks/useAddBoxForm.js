@@ -6,17 +6,15 @@ import {
   setBoxColor,
   setDestinationCountry,
   resetAddBox,
-} from '../store/slices/addBoxSlice';
-import { addShippingBox } from '../store/slices/boxListingSlice';
+} from '../../../store/slices/addBoxSlice';
+import { addShippingBox } from '../../../store/slices/boxListingSlice';
 import { createShippingBox } from '../services/shippingService';
-import { SUCCESS_MESSAGE_DURATION, FORM_FIELDS } from '../views/AddBox/constants';
-
+import { SUCCESS_MESSAGE_DURATION, FORM_FIELDS } from '../constants';
 
 export const useAddBoxForm = () => {
   const dispatch = useDispatch();
   const formData = useSelector(state => state.addBox);
   const [showSuccess, setShowSuccess] = useState(false);
-
 
   const handleFieldChange = (fieldName, value) => {
     switch (fieldName) {
@@ -37,14 +35,12 @@ export const useAddBoxForm = () => {
     }
   };
 
-
   const showSuccessMessage = () => {
     setShowSuccess(true);
     setTimeout(() => {
       setShowSuccess(false);
     }, SUCCESS_MESSAGE_DURATION);
   };
-
 
   const handleSubmit = (event, shippingCharge) => {
     event.preventDefault();

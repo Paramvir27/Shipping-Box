@@ -7,4 +7,4 @@ export const hexToRgb = (hex) => {
   const rgb = `(${r}, ${g}, ${b})`;
 
   return rgb;
-}
+};

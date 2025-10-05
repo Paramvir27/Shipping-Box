@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom'
-import BoxListing from '../views/BoxListing'
-import AddBox from '../views/AddBox'
+import BoxListingPage from '../pages/BoxListing'
+import AddBoxPage from '../pages/AddBox'
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<BoxListing />} />
-      <Route path="/AddBox" element={<AddBox />} />
+      <Route path="/" element={<BoxListingPage />} />
+      <Route path="/AddBox" element={<AddBoxPage />} />
     </Routes>
   )
 }

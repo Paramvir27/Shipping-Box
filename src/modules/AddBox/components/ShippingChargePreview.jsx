@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '../style.module.css';
-import { validateBoxWeight } from '../../../services/shippingService';
-
+import { validateBoxWeight } from '../services/shippingService';
 
 const ShippingChargePreview = ({ 
   destinationCountry, 
