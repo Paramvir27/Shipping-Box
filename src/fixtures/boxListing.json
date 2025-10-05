@@ -1,11 +1,11 @@
 [
   {
     "id": 1728456789001,
-    "receiverName": "John Anderson",
+    "receiverName": "John Doe",
     "boxWeight": 5.5,
     "boxColor": "#2196f3",
-    "destinationCountry": "united states",
-    "shippingCharge": 137.50
+    "destinationCountry": "sweden",
+    "shippingCharge": 40.43
   },
   {
     "id": 1728456789002,
@@ -20,8 +20,8 @@
     "receiverName": "Rajesh Kumar",
     "boxWeight": 8.7,
     "boxColor": "#ff9800",
-    "destinationCountry": "india",
-    "shippingCharge": 69.60
+    "destinationCountry": "australia",
+    "shippingCharge": 435.78
   },
   {
     "id": 1728456789004,
@@ -29,6 +29,6 @@
     "boxWeight": 15.2,
     "boxColor": "#e91e63",
     "destinationCountry": "china",
-    "shippingCharge": 243.20
+    "shippingCharge": 175.26
   }
 ]

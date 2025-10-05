@@ -28,5 +28,5 @@ export const FORM_PLACEHOLDERS = {
 };
 
 export const VALIDATION_MESSAGES = {
-  BOX_WEIGHT: 'Negative values are not permitted. Box Weight must be between 0.1 and 100 KG',
+  BOX_WEIGHT: 'Box Weight must be between 0.1 and 100 KG',
 };

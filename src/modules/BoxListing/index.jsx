@@ -37,8 +37,8 @@ const BoxListingModule = () => {
                     <div className={styles.receiverName} title={box.receiverName}>
                       {box.receiverName}
                     </div>
-                  </td>
-                  <td>{box.boxWeight}</td>
+                  </td> 
+                  <td className={styles.weightCell}>{box.boxWeight}</td>
                   <td>
                     <div className={styles.colorCell}>
                       <div className={styles.colorBox} style={{ backgroundColor: box.boxColor }}></div>
