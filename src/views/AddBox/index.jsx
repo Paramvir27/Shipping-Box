@@ -15,40 +15,25 @@ const AddBox = () => {
   const { receiverName, boxWeight, boxColor, destinationCountry } = useSelector(state => state.addBox);
 
   const destinationChargePerKg = shippingCharges[destinationCountry];
-  const shippingCharge = destinationChargePerKg * boxWeight;
+  const shippingCharge = Number((destinationChargePerKg * boxWeight).toFixed(2));
 
   const handleReceiverNameChange = (event) => {
     dispatch(setReceiverName(event.target.value))
   }
 
-  const handleReceiverNameValidation = () => {
-    if (receiverName.length === 0) {
-      return "Receiver Name is required"
-    }
-    return null
-  }
+
 
   const handleBoxWeightChange = (event) => {
     dispatch(setBoxWeight(Number(event.target.value)))
   }
 
-  const handleBoxWeightValidation = () => {
-    if (boxWeight < 0) {
-      return "Box Weight is required"
-    }
-    return null
-  }
+
 
   const handleBoxColorChange = (event) => {
     dispatch(setBoxColor(event.target.value))
   }
 
-  const handleBoxColorValidation = () => {
-    if (boxColor.length === 0) {
-      return "Box Color is required"
-    }
-    return null
-  }
+
 
   const handleDestinationCountryChange = (event) => {
     dispatch(setDestinationCountry(event.target.value))
@@ -80,28 +65,28 @@ const AddBox = () => {
           placeholder="Enter Receiver Name"
           value={receiverName}
           onChange={handleReceiverNameChange}
-          getValidationMessage={handleReceiverNameValidation}
         />
 
-        <InputNumber
-          required={true}
-          label="Box Weight"
-          placeholder="Enter Box Weight"
-          value={boxWeight}
-          min="0.1" max="100"
-          step="0.1"
-          onChange={handleBoxWeightChange}
-          getValidationMessage={handleBoxWeightValidation}
-        />
+        <div className={styles.rowContainer}>
+          <InputNumber
+            required={true}
+            info="Negative values are not permitted. Box Weight must be between 0.1 and 100 KG"
+            label="Box Weight (KG)"
+            placeholder="Enter Box Weight"
+            value={boxWeight}
+            min="0.1" max="100"
+            step="0.1"
+            onChange={handleBoxWeightChange}
+          />
 
-        <InputColor
-          required={true}
-          label="Box Color"
-          placeholder="Enter Box Color"
-          value={boxColor}
-          onChange={handleBoxColorChange}
-          getValidationMessage={handleBoxColorValidation}
-        />
+          <InputColor
+            required={true}
+            label="Box Color"
+            placeholder="Enter Box Color"
+            value={boxColor}
+            onChange={handleBoxColorChange}
+          />
+        </div>
 
         <InputSelect
           required={true}
@@ -112,9 +97,13 @@ const AddBox = () => {
           options={destinationCountries}
         />
 
-        {destinationCountry && (
+        {destinationCountry && (boxWeight <= 100 && boxWeight >= 0.1) && (
           <div>
-            <div>Shipping Charge: {shippingCharge}</div>
+            <div className={styles.title}>Shipping Charges</div>
+            <div className={styles.value}>
+              <span>₹{destinationChargePerKg} × {boxWeight} KG = </span>
+              <span>₹{shippingCharge}</span>
+            </div>
           </div>
         )}
 
